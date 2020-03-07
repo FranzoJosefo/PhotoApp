@@ -1,5 +1,7 @@
 package com.franciscoolivero.android.photoapp.viewmodel;
 
+import com.franciscoolivero.android.photoapp.di.DaggerApiComponent;
+
 import java.util.List;
 
 import androidx.lifecycle.MutableLiveData;
@@ -10,4 +12,9 @@ public class AlbumsViewModel extends ViewModel {
     public MutableLiveData<List<AlbumsViewModel>> albumLiveData = new MutableLiveData<>();
     public MutableLiveData<Boolean> albumLoadErrorLiveData = new MutableLiveData<>();
     public MutableLiveData<Boolean> albumIsLoadingLiveData = new MutableLiveData<>();
+
+    public AlbumsViewModel() {
+        super();
+        DaggerApiComponent.create().inject(this);
+    }
 }
