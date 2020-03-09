@@ -18,3 +18,6 @@ https://github.com/ReactiveX/RxAndroid
 https://github.com/google/dagger
 
 https://square.github.io/retrofit/2.x/retrofit/
+
+## Created By
+App created by Francisco José Olivero
