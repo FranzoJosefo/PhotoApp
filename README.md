@@ -1,6 +1,6 @@
 # PhotoApp
 
-PhotoApp is a simple MVVM Android app, using Retrofit + Dagger + RxAndroid.
+PhotoApp is a simple MVVM Java Android App, using Retrofit + Dagger + RxAndroid.
 The app consists in three screens, representing user albums, photos, and photo details.
 The data showcased in the app was retrieved from: [Json Place Holder api](https://jsonplaceholder.typicode.com/)
 
