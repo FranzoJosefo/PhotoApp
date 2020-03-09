@@ -24,7 +24,7 @@
                 android:id="@+id/albums_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:titleTextColor="@color/colorAppTitle"
+                app:titleTextColor="@android:color/white"
                 app:title="@string/album_page_title" />
 
         </com.google.android.material.appbar.AppBarLayout>
