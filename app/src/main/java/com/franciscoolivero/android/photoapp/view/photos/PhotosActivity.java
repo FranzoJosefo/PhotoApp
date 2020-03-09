@@ -57,7 +57,7 @@ public class PhotosActivity extends AppCompatActivity {
 
     private PhotosViewModel photosViewModel;
 
-    private PhotosRecyclerAdapter photosRecyclerAdapter = new PhotosRecyclerAdapter(new ArrayList<>());
+    private PhotosRecyclerAdapter photosRecyclerAdapter = new PhotosRecyclerAdapter(new ArrayList<>(), this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +78,7 @@ public class PhotosActivity extends AppCompatActivity {
     private void setupActionToolBar() {
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
-        ab.setTitle(albumTitle);
+        Objects.requireNonNull(ab).setTitle(albumTitle);
         Objects.requireNonNull(ab).setDisplayHomeAsUpEnabled(true);
     }
 
@@ -138,5 +138,9 @@ public class PhotosActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         photosViewModel.goToAlbumActivity(this);
         return false;
+    }
+
+    public void goToPhotoDetailActivity(PhotoModel photoModel) {
+        photosViewModel.goToPhotoDetailActivity(this, photoModel, albumTitle);
     }
 }

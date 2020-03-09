@@ -1,5 +1,6 @@
 package com.franciscoolivero.android.photoapp.view.photos;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +20,11 @@ import butterknife.ButterKnife;
 public class PhotosRecyclerAdapter extends RecyclerView.Adapter<PhotosRecyclerAdapter.PhotosViewHolder> {
 
     private List<PhotoModel> photosList;
+    private Context context;
 
-    public PhotosRecyclerAdapter(List<PhotoModel> photosList) {
+    public PhotosRecyclerAdapter(List<PhotoModel> photosList, Context context) {
         this.photosList = photosList;
+        this.context = context;
     }
 
     public void updatePhotos(List<PhotoModel> newPhotos) {
@@ -59,6 +62,7 @@ public class PhotosRecyclerAdapter extends RecyclerView.Adapter<PhotosRecyclerAd
 
         public void bind(PhotoModel photoModel) {
             ImageUtil.loadImage(photoImage, photoModel.getPhotoThumbnailUrl(), ImageUtil.getProgressDrawable(photoImage.getContext()));
+            itemView.setOnClickListener(view -> ((PhotosActivity) context).goToPhotoDetailActivity(photoModel));
         }
     }
 }

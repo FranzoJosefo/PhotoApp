@@ -7,6 +7,7 @@ import com.franciscoolivero.android.photoapp.data.NetworkService;
 import com.franciscoolivero.android.photoapp.di.DaggerApiComponent;
 import com.franciscoolivero.android.photoapp.model.PhotoModel;
 import com.franciscoolivero.android.photoapp.view.albums.AlbumActivity;
+import com.franciscoolivero.android.photoapp.view.photo.Henson;
 
 import java.util.List;
 
@@ -65,6 +66,15 @@ public class PhotosViewModel extends ViewModel {
         Intent intent = new Intent(sourceActivity, AlbumActivity.class);
         sourceActivity.startActivity(intent);
         sourceActivity.finish();
+    }
+
+    public void goToPhotoDetailActivity(Activity sourceActivity, PhotoModel photo, String albumTitle) {
+        Intent intent = Henson.with(sourceActivity)
+                .gotoPhotoDetailActivity()
+                .albumTitle(albumTitle)
+                .photoModel(photo)
+                .build();
+        sourceActivity.startActivity(intent);
     }
 
     @Override
