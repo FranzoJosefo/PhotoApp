@@ -21,7 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".view.photos.PhotosActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -29,6 +28,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".view.albums.AlbumActivity" />
         </activity>
+        <activity
+            android:name=".view.photodetail.PhotoDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
