@@ -2,6 +2,7 @@ package com.franciscoolivero.android.photoapp.data;
 
 import com.franciscoolivero.android.photoapp.di.DaggerApiComponent;
 import com.franciscoolivero.android.photoapp.model.AlbumModel;
+import com.franciscoolivero.android.photoapp.model.PhotoModel;
 
 import java.util.List;
 
@@ -31,6 +32,10 @@ public class NetworkService {
 
     public Single<List<AlbumModel>> getAlbums() {
         return api.getAlbums();
+    }
+
+    public Single<List<PhotoModel>> getPhotos(int albumId) {
+        return api.getPhotos(String.valueOf(albumId));
     }
 
 }
