@@ -4,21 +4,21 @@ import com.google.gson.annotations.SerializedName;
 
 public class AlbumModel {
     @SerializedName("id")
-    private int album_id;
+    private int albumId;
     @SerializedName("title")
-    private String album_title;
+    private String albumTitle;
 
     public AlbumModel(int album_id, String album_title) {
-        this.album_id = album_id;
-        this.album_title = album_title;
+        this.albumId = album_id;
+        this.albumTitle = album_title;
     }
 
-    public int getAlbum_id() {
-        return album_id;
+    public int getAlbumId() {
+        return albumId;
     }
 
-    public String getAlbum_title() {
-        return album_title;
+    public String getAlbumTitle() {
+        return albumTitle;
     }
 
 }
