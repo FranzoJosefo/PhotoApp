@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.f2prateek.dart.Dart;
 import com.f2prateek.dart.InjectExtra;
 import com.franciscoolivero.android.photoapp.R;
 import com.franciscoolivero.android.photoapp.viewmodel.PhotosViewModel;
@@ -43,6 +44,7 @@ public class PhotosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photos);
         ButterKnife.bind(this);
+        Dart.inject(this);
         photosViewModel = ViewModelProviders.of(this).get(PhotosViewModel.class);
         photosViewModel.fetchPhotos(albumId);
     }
