@@ -1,8 +1,12 @@
 package com.franciscoolivero.android.photoapp.viewmodel;
 
+import android.app.Activity;
+import android.content.Intent;
+
 import com.franciscoolivero.android.photoapp.data.NetworkService;
 import com.franciscoolivero.android.photoapp.di.DaggerApiComponent;
 import com.franciscoolivero.android.photoapp.model.PhotoModel;
+import com.franciscoolivero.android.photoapp.view.albums.AlbumActivity;
 
 import java.util.List;
 
@@ -31,8 +35,10 @@ public class PhotosViewModel extends ViewModel {
         DaggerApiComponent.create().inject(this);
     }
 
-    public void fetchPhotos(int albumId) {
-        photoIsLoadingLiveData.setValue(true);
+    public void fetchPhotos(int albumId, Boolean isRefreshing) {
+        if (!isRefreshing) {
+            photoIsLoadingLiveData.setValue(true);
+        }
         disposable.add(
                 networkService.getPhotos(albumId)
                         .subscribeOn(Schedulers.newThread())
@@ -53,6 +59,12 @@ public class PhotosViewModel extends ViewModel {
                             }
                         })
         );
+    }
+
+    public void goToAlbumActivity(Activity sourceActivity) {
+        Intent intent = new Intent(sourceActivity, AlbumActivity.class);
+        sourceActivity.startActivity(intent);
+        sourceActivity.finish();
     }
 
     @Override
