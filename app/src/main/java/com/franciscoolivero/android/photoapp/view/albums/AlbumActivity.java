@@ -8,13 +8,11 @@ import android.widget.TextView;
 import com.franciscoolivero.android.photoapp.R;
 import com.franciscoolivero.android.photoapp.model.AlbumModel;
 import com.franciscoolivero.android.photoapp.viewmodel.AlbumsViewModel;
-import com.google.android.material.appbar.AppBarLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -23,16 +21,10 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class AlbumActivity extends AppCompatActivity {
 
     @BindView(R.id.album_swipe_refresh_layout)
     SwipeRefreshLayout swipeRefreshLayout;
-
-    @BindView(R.id.albums_appbar)
-    AppBarLayout appBarLayout;
-
-    @BindView(R.id.albums_toolbar)
-    Toolbar toolbar;
 
     @BindView(R.id.albums_recycler_view)
     RecyclerView recyclerView;
@@ -52,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_albums);
         ButterKnife.bind(this);
 
         albumsViewModel = ViewModelProviders.of(this).get(AlbumsViewModel.class);
