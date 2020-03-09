@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">PhotoApp</string>
+
+    <!-- Albums -->
+    <string name="album_page_title">My Albums</string>
+    <string name="album_page_loading_error_message">There was an error while loading your albums\n Please try again.</string>
+
+    <!-- Photos -->
+    <string name="photos_page_loading_error_message">There was an error while loading the photos from this album\n Please try again.</string>
+    <string name="photo_details_album_label">Album:</string>
+    <string name="photo_details_name_label">Name:</string>
+
 </resources>
