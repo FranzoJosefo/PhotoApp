@@ -1,4 +1,4 @@
-# PhotoAp
+# PhotoApp
 
 PhotoApp is a simple MVVM Android app, using Retrofit + Dagger + RxAndroid.
 The app consists in three screens, representing user albums, photos, and photo details.
