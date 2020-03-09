@@ -82,10 +82,11 @@ public class AlbumsViewModel extends ViewModel {
         );
     }
 
-    public void goToPhotosActivity(Activity sourceActivity, int albumId) {
+    public void goToPhotosActivity(Activity sourceActivity, int albumId, String albumName) {
         Intent intent = Henson.with(sourceActivity)
                 .gotoPhotosActivity()
                 .albumId(albumId)
+                .albumTitle(albumName)
                 .build();
         sourceActivity.startActivity(intent);
         sourceActivity.finish();
