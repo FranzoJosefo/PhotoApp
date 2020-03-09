@@ -1,4 +1,4 @@
-package com.franciscoolivero.android.photoapp.view;
+package com.franciscoolivero.android.photoapp.view.albums;
 
 import android.os.Bundle;
 import android.view.View;

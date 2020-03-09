@@ -5,7 +5,7 @@
     android:id="@+id/album_swipe_refresh_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    tools:context=".view.albums.AlbumActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/albums_container_layout"
