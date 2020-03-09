@@ -48,12 +48,11 @@ public class AlbumActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         albumsViewModel = ViewModelProviders.of(this).get(AlbumsViewModel.class);
-        albumsViewModel.fetchAlbums();
+        albumsViewModel.fetchAlbums(false);
 
         setupRecyclerView();
         setupSwipeRefreshListener();
         setupObserversViewModel();
-
     }
 
     private void setupRecyclerView() {
@@ -66,7 +65,7 @@ public class AlbumActivity extends AppCompatActivity {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                albumsViewModel.fetchAlbums();
+                albumsViewModel.fetchAlbums(true);
                 swipeRefreshLayout.setRefreshing(false);
             }
         });

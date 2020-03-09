@@ -36,8 +36,10 @@ public class AlbumsViewModel extends ViewModel {
         DaggerApiComponent.create().inject(this);
     }
 
-    public void fetchAlbums() {
-        albumIsLoadingLiveData.setValue(true);
+    public void fetchAlbums(Boolean isRefreshing) {
+        if (!isRefreshing) {
+            albumIsLoadingLiveData.setValue(true);
+        }
 
         disposable.add(
                 networkService.getAlbums()
