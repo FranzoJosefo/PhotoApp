@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.photodetail.PhotoDetailActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/photo_detail_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/photos_detail_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:titleTextColor="@android:color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="4dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/photo_detail_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:background="@android:color/background_dark" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/photo_detail_label_dimen"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingStart="12dp"
+            android:paddingTop="18dp"
+            android:paddingEnd="12dp">
+
+            <LinearLayout
+                android:id="@+id/photo_detail_labels_layout_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/photo_detail_title_label"
+                    style="@style/labelPhotoDetailStyle"
+                    android:text="@string/photo_details_name_label"
+                    app:fontFamily="sans-serif-condensed-medium" />
+
+                <TextView
+                    android:id="@+id/photo_detail_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16sp"
+                    app:fontFamily="sans-serif-condensed-medium"
+                    tools:text="This parrot is no more" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/photo_detail_values_layout_container"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/photo_detail_labels_layout_container">
+
+                <TextView
+                    android:id="@+id/photo_detail_album_title_label"
+                    style="@style/labelPhotoDetailStyle"
+                    android:text="@string/photo_details_album_label"
+                    app:fontFamily="sans-serif-condensed-medium" />
+
+                <TextView
+                    android:id="@+id/photo_detail_album_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16sp"
+                    app:fontFamily="sans-serif-condensed-medium"
+                    tools:text="Monty Python" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
