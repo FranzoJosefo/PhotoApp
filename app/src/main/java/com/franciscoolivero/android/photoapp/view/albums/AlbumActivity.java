@@ -110,4 +110,8 @@ public class AlbumActivity extends AppCompatActivity {
     public AlbumsViewModel getViewModel() {
         return albumsViewModel;
     }
+
+    public void goToPhotosActivity(int albumId, String albumTitle) {
+        albumsViewModel.goToPhotosActivity(this, albumId, albumTitle);
+    }
 }

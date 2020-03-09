@@ -7,7 +7,7 @@ import com.franciscoolivero.android.photoapp.data.NetworkService;
 import com.franciscoolivero.android.photoapp.di.DaggerApiComponent;
 import com.franciscoolivero.android.photoapp.model.AlbumModel;
 import com.franciscoolivero.android.photoapp.model.PhotoModel;
-import com.franciscoolivero.android.photoapp.view.photos.Henson;
+import com.franciscoolivero.android.photoapp.view.photo.Henson;
 
 import java.util.List;
 

@@ -19,7 +19,6 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class AlbumsRecyclerAdapter extends RecyclerView.Adapter<AlbumsRecyclerAdapter.AlbumViewHolder> {
 
@@ -62,9 +61,6 @@ public class AlbumsRecyclerAdapter extends RecyclerView.Adapter<AlbumsRecyclerAd
         @BindView(R.id.grid_cell_album_name_text_view)
         TextView albumName;
 
-        private int albumId;
-        private String albumTitle;
-
         public MutableLiveData<List<PhotoModel>> photoModels = new MutableLiveData<>();
 
         public AlbumViewHolder(@NonNull View itemView) {
@@ -81,13 +77,7 @@ public class AlbumsRecyclerAdapter extends RecyclerView.Adapter<AlbumsRecyclerAd
         public void bind(AlbumModel album) {
             ((AlbumActivity) context).getViewModel().fetchPhotos(album.getAlbumId(), photoModels);
             albumName.setText(album.getAlbumTitle());
-            albumId = album.getAlbumId();
-            albumTitle = album.getAlbumTitle();
-        }
-
-        @OnClick
-        void onClick() {
-            ((AlbumActivity) context).getViewModel().goToPhotosActivity((AlbumActivity) context, albumId, albumTitle);
+            itemView.setOnClickListener(view -> ((AlbumActivity) context).goToPhotosActivity(album.getAlbumId(), album.getAlbumTitle()));
         }
     }
 }
