@@ -63,6 +63,7 @@ public class AlbumsRecyclerAdapter extends RecyclerView.Adapter<AlbumsRecyclerAd
         TextView albumName;
 
         private int albumId;
+        private String albumTitle;
 
         public MutableLiveData<List<PhotoModel>> photoModels = new MutableLiveData<>();
 
@@ -78,14 +79,15 @@ public class AlbumsRecyclerAdapter extends RecyclerView.Adapter<AlbumsRecyclerAd
         }
 
         public void bind(AlbumModel album) {
-            ((AlbumActivity) context).getViewModel().fetchPhotos(album.getAlbum_id(), photoModels);
-            albumName.setText(album.getAlbum_title());
-            albumId = album.getAlbum_id();
+            ((AlbumActivity) context).getViewModel().fetchPhotos(album.getAlbumId(), photoModels);
+            albumName.setText(album.getAlbumTitle());
+            albumId = album.getAlbumId();
+            albumTitle = album.getAlbumTitle();
         }
 
         @OnClick
         void onClick() {
-            ((AlbumActivity) context).getViewModel().goToPhotosActivity((AlbumActivity) context, albumId);
+            ((AlbumActivity) context).getViewModel().goToPhotosActivity((AlbumActivity) context, albumId, albumTitle);
         }
     }
 }
