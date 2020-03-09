@@ -30,7 +30,7 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <ProgressBar
-            android:id="@+id/albums_progress_circular"
+            android:id="@+id/albums_progress_spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -50,6 +50,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_margin="4dp"
             android:id="@+id/albums_recycler_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
