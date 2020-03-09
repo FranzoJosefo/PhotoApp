@@ -1,4 +1,4 @@
-package com.franciscoolivero.android.photoapp.view;
+package com.franciscoolivero.android.photoapp.view.albums;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -19,6 +19,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class AlbumsRecyclerAdapter extends RecyclerView.Adapter<AlbumsRecyclerAdapter.AlbumViewHolder> {
 
@@ -40,7 +41,7 @@ public class AlbumsRecyclerAdapter extends RecyclerView.Adapter<AlbumsRecyclerAd
     @NonNull
     @Override
     public AlbumViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_cell_albums_page, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_item_albums_page, parent, false);
         return new AlbumViewHolder(itemView);
     }
 
@@ -61,6 +62,8 @@ public class AlbumsRecyclerAdapter extends RecyclerView.Adapter<AlbumsRecyclerAd
         @BindView(R.id.grid_cell_album_name_text_view)
         TextView albumName;
 
+        private int albumId;
+
         public MutableLiveData<List<PhotoModel>> photoModels = new MutableLiveData<>();
 
         public AlbumViewHolder(@NonNull View itemView) {
@@ -70,13 +73,19 @@ public class AlbumsRecyclerAdapter extends RecyclerView.Adapter<AlbumsRecyclerAd
         }
 
         private void setupObservers() {
-            photoModels.observe((MainActivity) context, photoModels -> ImageUtil.loadImage(
+            photoModels.observe((AlbumActivity) context, photoModels -> ImageUtil.loadImage(
                     albumCoverImage, photoModels.get(0).getPhotoThumbnailUrl(), ImageUtil.getProgressDrawable(albumCoverImage.getContext())));
         }
 
         public void bind(AlbumModel album) {
-            ((MainActivity) context).getViewModel().fetchPhotos(album.getAlbum_id(), photoModels);
+            ((AlbumActivity) context).getViewModel().fetchPhotos(album.getAlbum_id(), photoModels);
             albumName.setText(album.getAlbum_title());
+            albumId = album.getAlbum_id();
+        }
+
+        @OnClick
+        void onClick() {
+            ((AlbumActivity) context).getViewModel().goToPhotosActivity((AlbumActivity) context, albumId);
         }
     }
 }

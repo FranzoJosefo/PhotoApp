@@ -1,9 +1,13 @@
 package com.franciscoolivero.android.photoapp.viewmodel;
 
+import android.app.Activity;
+import android.content.Intent;
+
 import com.franciscoolivero.android.photoapp.data.NetworkService;
 import com.franciscoolivero.android.photoapp.di.DaggerApiComponent;
 import com.franciscoolivero.android.photoapp.model.AlbumModel;
 import com.franciscoolivero.android.photoapp.model.PhotoModel;
+import com.franciscoolivero.android.photoapp.view.photos.Henson;
 
 import java.util.List;
 
@@ -74,6 +78,15 @@ public class AlbumsViewModel extends ViewModel {
                             }
                         })
         );
+    }
+
+    public void goToPhotosActivity(Activity sourceActivity, int albumId) {
+        Intent intent = Henson.with(sourceActivity)
+                .gotoPhotosActivity()
+                .albumId(albumId)
+                .build();
+        sourceActivity.startActivity(intent);
+        sourceActivity.finish();
     }
 
     @Override
